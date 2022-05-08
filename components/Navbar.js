@@ -14,7 +14,7 @@ const Navbar = ({ router }) => {
   const navs = [
     { text: 'Home', href: '/' },
     { text: 'About', href: '/about' },
-    { text: 'Portofolio', href: '/portfolio' },
+    { text: 'Portofolio', href: '/portofolio' },
     { text: 'Blog', href: '/blog' },
     { text: 'Contact', href: '/contact' },
   ];
@@ -85,7 +85,6 @@ const Navbar = ({ router }) => {
                     ? 'active py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75'
                     : 'py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75'
                 }`}
-                onClick={handleClick}
               >
                 {nav.text}
               </a>
