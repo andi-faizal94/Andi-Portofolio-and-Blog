@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 @layer base {
   body {
     @apply font-[Raleway];
@@ -15,6 +16,15 @@
     @apply px-4;
     @apply cursor-pointer;
   }
+}
+
+.nav-item {
+  position: relative;
+  display: inline-block;
+  /* margin-left: 3px;
+  margin-right: 3px; */
+  text-decoration: none;
+  transition: opacity 0.3s;
 }
 .active {
   font-weight: 600;
