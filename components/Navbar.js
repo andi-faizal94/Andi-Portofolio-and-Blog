@@ -11,35 +11,67 @@ import Link from 'next/link';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const handleClick = () => setNav(!nav);
+  const handleClick = (e) => {
+    e.preventDefault();
+    setNav(!nav);
+  };
 
   return (
     <nav className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300">
       <div>
-        <h1 className="hover:text-gray-100 font-bold hover:scale-x-110">
-          Andi
-          <span className="ml-1 text-green-400 font-bold font-serif ">
-            Faizal
-          </span>
-        </h1>
+        <Link
+          className={(
+            { NavLink } //(isActive) --> ({isActive})
+          ) =>
+            NavLink
+              ? 'isActive NavLink cursor-pointer hover:text-gray-100'
+              : 'NavLink scroll-smooth'
+          }
+          // className="NavLink scroll-smooth"
+          href="/"
+          duration={500}
+        >
+          <a>
+            <h1 className="hover:text-gray-100 font-bold hover:scale-x-110">
+              Andi
+              <span className="ml-1 text-green-400 font-bold font-serif ">
+                Faizal
+              </span>
+            </h1>
+          </a>
+        </Link>
       </div>
+
+      {/* menu */}
       <ul className="hidden md:flex">
-        <li>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/about">
-            <a>About Us</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/blog/hello-world">
-            <a>Blog Post</a>
-          </Link>
-        </li>
+        <Link href="/" duration={500}>
+          <a className="NavLink scroll-smooth cursor-pointer hover:text-gray-100 hover:scale-x-110">
+            Home
+          </a>
+        </Link>
+        <Link href="/about" duration={500}>
+          <a className="NavLink scroll-smooth cursor-pointer hover:text-gray-100 hover:scale-x-110">
+            About
+          </a>
+        </Link>
+        <Link href="/portofolio" duration={500}>
+          <a className="NavLink scroll-smooth cursor-pointer hover:text-gray-100 hover:scale-x-110">
+            Portofolio
+          </a>
+        </Link>
+        <Link href="/blog" duration={500}>
+          <a className="NavLink scroll-smooth cursor-pointer hover:text-gray-100 hover:scale-x-110">
+            Blog
+          </a>
+        </Link>
+        <Link href="/contact" duration={500}>
+          <a className="NavLink scroll-smooth cursor-pointer hover:text-gray-100 hover:scale-x-110">
+            Contact
+          </a>
+        </Link>
       </ul>
+
+      {/* Hamburger */}
       <div onClick={handleClick} className="md:hidden z-10">
         {!nav ? (
           <FaBars className="transition duration-500 ease-out" />
@@ -48,6 +80,7 @@ const Navbar = () => {
         )}
       </div>
 
+      {/* Mobile menu */}
       <ul
         className={
           !nav
@@ -55,48 +88,49 @@ const Navbar = () => {
             : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'
         }
       >
-        <Link
-          className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75"
-          onClick={handleClick}
-          href="/"
-          duration={100}
-        >
-          <a>Home</a>
+        <Link href="/" duration={100}>
+          <a
+            onClick={handleClick}
+            className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75"
+          >
+            Home
+          </a>
         </Link>
-        <Link
-          className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-100"
-          onClick={handleClick}
-          href="/about"
-          duration={100}
-        >
-          <a>About</a>
+        <Link href="/about" duration={100}>
+          <a
+            onClick={handleClick}
+            className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75"
+          >
+            About
+          </a>
         </Link>
-        <Link
-          className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-200"
-          onClick={handleClick}
-          href="/portofolio"
-          duration={100}
-        >
-          <a>Portofolio</a>
+        <Link href="/portofolio" duration={100}>
+          <a
+            onClick={handleClick}
+            className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75"
+          >
+            Portofolio
+          </a>
         </Link>
-        <Link
-          className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-300"
-          onClick={handleClick}
-          href="/blog"
-          duration={100}
-        >
-          <a>Blog</a>
+        <Link href="/blog" duration={100}>
+          <a
+            onClick={handleClick}
+            className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75"
+          >
+            Blog
+          </a>
         </Link>
-        <Link
-          className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-500"
-          onClick={handleClick}
-          href="/contact"
-          duration={100}
-        >
-          <a>Contact</a>
+        <Link href="/contact" duration={100}>
+          <a
+            onClick={handleClick}
+            className="NavLink py-6 text-4xl scroll-smooth hover:text-gray-100 duration-75"
+          >
+            Contact
+          </a>
         </Link>
       </ul>
 
+      {/* Social icons */}
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
