@@ -25,7 +25,7 @@ const Navbar = ({ router }) => {
   };
 
   return (
-    <nav className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300">
+    <nav className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300 z-30">
       <div>
         <Link href="/" duration={500}>
           <a>
@@ -47,8 +47,8 @@ const Navbar = ({ router }) => {
               <a
                 className={`nav-item ${
                   router.pathname == nav.href
-                    ? 'active scroll-smooth font-[700] cursor-pointer hover:text-gray-100 hover:scale-x-110'
-                    : 'font-[700] hover:text-gray-100 hover:scale-x-110'
+                    ? 'active scroll-smooth font-[700] cursor-pointer hover:text-gray-100 hover:scale-x-110 z-30'
+                    : 'font-[700] hover:text-gray-100 hover:scale-x-110 z-30'
                 }`}
                 duration={500}
               >
@@ -73,7 +73,7 @@ const Navbar = ({ router }) => {
         className={
           !nav
             ? 'hidden'
-            : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'
+            : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center z-10'
         }
       >
         {navs.map((nav) => (
