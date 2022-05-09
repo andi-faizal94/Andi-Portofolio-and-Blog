@@ -47,7 +47,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="block sm:hidden w-6/2 md:m-8  bg-emerald-400 hover:bg-transparent rounded-full relative">
+          <div className="hidden xs:block sm:block md:block  w-6/2 md:m-8  bg-emerald-400 hover:bg-transparent rounded-full relative">
             {/* <img src={logo} alt="andi profil" size={30} /> */}
             <Image
               className="object-cover absolute h-screen z-0"
