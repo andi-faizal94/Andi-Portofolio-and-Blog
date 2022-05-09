@@ -10,14 +10,14 @@ import { HiOutlineMail } from 'react-icons/hi';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 
+const navs = [
+  { text: 'Home', href: '/' },
+  { text: 'About', href: '/about' },
+  { text: 'Portofolio', href: '/portofolio' },
+  { text: 'Blog', href: '/blog' },
+  { text: 'Contact', href: '/contact' },
+];
 const Navbar = ({ router }) => {
-  const navs = [
-    { text: 'Home', href: '/' },
-    { text: 'About', href: '/about' },
-    { text: 'Portofolio', href: '/portofolio' },
-    { text: 'Blog', href: '/blog' },
-    { text: 'Contact', href: '/contact' },
-  ];
   const [nav, setNav] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ const Navbar = ({ router }) => {
       </ul>
 
       {/* Hamburger */}
-      <div onClick={handleClick} className="md:hidden z-10">
+      <div onClick={handleClick} className="md:hidden z-30">
         {!nav ? (
           <FaBars className="transition duration-500 ease-out" />
         ) : (

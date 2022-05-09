@@ -11,8 +11,8 @@ export default function Home() {
         <title>Home</title>
       </Head>
       <Navbar />
-      <div className="w-full h-screen bg-[rgb(10,25,47)]">
-        <div className="max-w-[1000px] mx-auto px-4 flex flex-col md:flex-row lg:flex-row justify-around  items-center h-full pt-24">
+      <div className="w-full min-h-screen bg-[rgb(10,25,47)]">
+        <div className="max-w-[1000px] mx-auto px-4 flex flex-col-reverse md:flex-row lg:flex-row justify-around  items-center min-h-screen pt-24">
           <div className="w-6/2">
             <p className="text-green-500 py-2 text-2xl font-semibold">
               Hi, my name is
@@ -47,14 +47,15 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="hidden sm:block w-6/2 md:m-8 bg-emerald-400 hover:bg-transparent rounded-full">
+          <div className="block sm:hidden w-6/2 md:m-8  bg-emerald-400 hover:bg-transparent rounded-full relative">
             {/* <img src={logo} alt="andi profil" size={30} /> */}
             <Image
-              className="object-cover"
+              className="object-cover absolute h-screen z-0"
               src={logo}
               alt="Picture of the author"
               width={208}
               height={208}
+              priority
             />
           </div>
         </div>
