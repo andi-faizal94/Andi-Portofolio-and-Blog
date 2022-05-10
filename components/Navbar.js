@@ -13,8 +13,8 @@ import { withRouter } from 'next/router';
 const navs = [
   { text: 'Home', href: '/' },
   { text: 'About', href: '/about' },
-  { text: 'Portofolio', href: '/portofolio' },
-  { text: 'Blog', href: '/blog' },
+  { text: 'Portofolio', href: 'https://github.com/andi-faizal94' },
+  { text: 'Blog', href: 'https://medium.com/@andifz9475' },
   { text: 'Contact', href: '/contact' },
 ];
 const Navbar = ({ router }) => {
