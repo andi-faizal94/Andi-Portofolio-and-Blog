@@ -29,7 +29,7 @@ export default function Home() {
               on building responsive full-stack web applications.
             </p>
             <div className="flex">
-              <Link href="/portofolio">
+              <Link href="https://github.com/andi-faizal94">
                 <a className="text-white group border-2 px-6 py-3 mx-2 my-2 flex items-center hover:bg-emerald-400 rounded-md">
                   View Work
                   <span className="group-hover:rotate-90 duration-300">
