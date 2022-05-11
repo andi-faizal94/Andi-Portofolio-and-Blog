@@ -33,21 +33,21 @@ export default function Home() {
                 <a className="text-white group border-2 px-6 py-3 mx-2 my-2 flex items-center hover:bg-emerald-400 rounded-md">
                   View Work
                   <span className="group-hover:rotate-90 duration-300">
-                    <HiArrowNarrowRight className="ml-3 " />
+                    <HiArrowNarrowRight className="ml-3" />
                   </span>
                 </a>
               </Link>
               <Link href="/contact">
-                <a className=" text-white group border-2 px-6 py-3 my-2 flex items-center hover:text-black hover:bg-cyan-200 rounded-md">
+                <a className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:text-black hover:bg-cyan-200 rounded-md">
                   Contact
                   <span className="group-hover:rotate-90 duration-300">
-                    <HiArrowNarrowRight className="ml-3 " />
+                    <HiArrowNarrowRight className="ml-3" />
                   </span>
                 </a>
               </Link>
             </div>
           </div>
-          <div className="block  w-6/2 md:m-8  bg-emerald-400 hover:bg-transparent rounded-full relative">
+          <div className="block  w-6/2 md:m-8 overflow-hidden bg-emerald-400 hover:bg-transparent rounded-full relative">
             {/* <img src={logo} alt="andi profil" size={30} /> */}
             <Image
               className="object-cover absolute h-screen z-0"
