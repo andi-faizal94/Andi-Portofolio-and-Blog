@@ -18,49 +18,51 @@ export default function blog({ posts }) {
         <p className="text-green-500 py-2 text-2xl font-semibold">
           Hi, my name is
         </p>
-        <p>{posts.data.frontmatter}</p>
+        {/* <p>{posts.frontmatter.title}</p> */}
         <span className="pt-32">
-          {/* {posts.map((post, index) => (
+          {posts.map((post, index) => (
             <div
               className="text-green-500 text-3xl bg-blue-100 mt-14"
               key={post.frontmatter}
             >
               <h1>{post.slug}</h1>
+              <h1> hallo {post.frontmatter.title}</h1>
               <h1> hallo {post.frontmatter.date}</h1>
             </div>
-          ))} */}
+          ))}
         </span>
       </div>
     </>
   );
 }
 
-const postsDirectory = path.join(process.cwd(), 'posts');
-
 export async function getStaticProps() {
   // Get files from the posts dir
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const slug = fileName.replace(/\.md$/, '');
+  const files = fs.readdirSync(path.join('posts'))
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+  // Get slug and frontmatter from posts
+  const posts = files.map((filename) => {
+    // Create slug
+    const slug = filename.replace('.md', '')
 
-    // Use gray-matter to parse the post metadata section
-    const { data } = matter(fileContents);
-    // console.log(data.title);
+    // Get frontmatter
+    const markdownWithMeta = fs.readFileSync(
+      path.join('posts', filename),
+      'utf-8'
+    )
+
+    const { data: frontmatter } = matter(markdownWithMeta)
+    console.log({data:frontmatter})
 
     return {
       slug,
-      data,
-    };
-  });
+      frontmatter,
+    }
+  })
 
   return {
     props: {
-      posts: postsDirectory,
+      posts: posts,
     },
-  };
+  }
 }
