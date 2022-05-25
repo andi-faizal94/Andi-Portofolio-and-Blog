@@ -1,6 +1,6 @@
 ---
-title:'test jasbdjasbdasjkbdaskjdbaskjdbaskjfdnaskjfnaskjfaskjfaskjfsakjfbsakjbfaskjbfjkasbfjka'
-date:'Mei 23 2022'
+title: 'When to Use Static Generation v.s. Server-side Rendering'
+date: '2020-01-02'
 ---
 
 ### Heading 3

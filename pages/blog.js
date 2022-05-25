@@ -18,7 +18,7 @@ export default function blog({ posts }) {
         <p className="text-green-500 py-2 text-2xl font-semibold">
           Hi, my name is
         </p>
-        {/* <p>{posts.data.title}</p> */}
+        <p>{posts.data.frontmatter}</p>
         <span className="pt-32">
           {/* {posts.map((post, index) => (
             <div
@@ -50,7 +50,7 @@ export async function getStaticProps() {
 
     // Use gray-matter to parse the post metadata section
     const { data } = matter(fileContents);
-    console.log(data.title);
+    // console.log(data.title);
 
     return {
       slug,
