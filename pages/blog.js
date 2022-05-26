@@ -1,13 +1,20 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
-import Head from 'next/head';
+import { sortByDate } from '../utils';
 
-export default function blog({ posts }) {
+export default function Blog({ posts, src }) {
+  const [image, setImage] = useState('/defaultImage');
   console.log(posts);
+  useEffect(() => {
+    if (src) {
+      setImage(src);
+    }
+  }, [src]);
 
   return (
     <>
@@ -19,7 +26,6 @@ export default function blog({ posts }) {
         <p className="text-green-500 py-2 text-2xl font-semibold">
           Hi, my name is
         </p>
-        {/* <p>{posts.frontmatter.title}</p> */}
         <span className="pt-32">
           {posts.map((post, index) => (
             <div
@@ -28,14 +34,18 @@ export default function blog({ posts }) {
             >
               <h1>{post.slug}</h1>
               <h1> hallo {post.frontmatter.title}</h1>
-              <h1> hallo {post.frontmatter.date}</h1>         
-               <Image
-                className="object-cover absolute h-screen z-0"
-                src={post.frontmatter.image_cover}
-                alt="Picture of the author"
-                width={500}
-                height={500}
-               />
+              <h1> hallo {post.frontmatter.date}</h1>
+              <h1> hallo {post.frontmatter.excerpt}</h1>
+
+              {src && (
+                <Image
+                  className="object-cover absolute h-screen z-0"
+                  src={post.frontmatter.image_cover}
+                  alt="Picture of the author"
+                  width={500}
+                  height={500}
+                />
+              )}
             </div>
           ))}
         </span>
@@ -46,31 +56,31 @@ export default function blog({ posts }) {
 
 export async function getStaticProps() {
   // Get files from the posts dir
-  const files = fs.readdirSync(path.join('posts'))
+  const files = fs.readdirSync(path.join('posts'));
 
   // Get slug and frontmatter from posts
   const posts = files.map((filename) => {
     // Create slug
-    const slug = filename.replace('.md', '')
+    const slug = filename.replace('.md', '');
 
     // Get frontmatter
     const markdownWithMeta = fs.readFileSync(
       path.join('posts', filename),
       'utf-8'
-    )
+    );
 
-    const { data: frontmatter } = matter(markdownWithMeta)
-    console.log({data:frontmatter})
+    const { data: frontmatter } = matter(markdownWithMeta);
+    console.log({ data: frontmatter });
 
     return {
       slug,
       frontmatter,
-    }
-  })
+    };
+  });
 
   return {
     props: {
-      posts: posts,
+      posts: posts.sort(sortByDate),
     },
-  }
+  };
 }
