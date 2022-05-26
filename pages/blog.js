@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import { sortByDate } from '../utils';
+import Post from '../components/Post';
 
 export default function Blog({ posts, src }) {
   const [image, setImage] = useState('/defaultImage');
@@ -28,25 +29,27 @@ export default function Blog({ posts, src }) {
         </p>
         <span className="pt-32">
           {posts.map((post, index) => (
-            <div
-              className="text-green-500 text-3xl bg-blue-100 mt-14"
-              key={post.frontmatter}
-            >
-              <h1>{post.slug}</h1>
-              <h1> hallo {post.frontmatter.title}</h1>
-              <h1> hallo {post.frontmatter.date}</h1>
-              <h1> hallo {post.frontmatter.excerpt}</h1>
+            <Post key={index} post={post} />
 
-              {src && (
-                <Image
-                  className="object-cover absolute h-screen z-0"
-                  src={post.frontmatter.image_cover}
-                  alt="Picture of the author"
-                  width={500}
-                  height={500}
-                />
-              )}
-            </div>
+            // <div
+            //   className="text-green-500 text-3xl bg-blue-100 mt-14"
+            //   key={post.frontmatter}
+            // >
+            //   <h1>{post.slug}</h1>
+            //   <h1> hallo {post.frontmatter.title}</h1>
+            //   <h1> hallo {post.frontmatter.date}</h1>
+            //   <h1> hallo {post.frontmatter.excerpt}</h1>
+
+            //   {src && (
+            //     <Image
+            //       className="object-cover absolute h-screen z-0"
+            //       src={post.frontmatter.image_cover}
+            //       alt="Picture of the author"
+            //       width={500}
+            //       height={500}
+            //     />
+            //   )}
+            // </div>
           ))}
         </span>
       </div>
