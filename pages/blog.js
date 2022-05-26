@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import React from 'react';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Head from 'next/head';
 
@@ -27,7 +28,14 @@ export default function blog({ posts }) {
             >
               <h1>{post.slug}</h1>
               <h1> hallo {post.frontmatter.title}</h1>
-              <h1> hallo {post.frontmatter.date}</h1>
+              <h1> hallo {post.frontmatter.date}</h1>         
+               <Image
+                className="object-cover absolute h-screen z-0"
+                src={post.frontmatter.image_cover}
+                alt="Picture of the author"
+                width={500}
+                height={500}
+               />
             </div>
           ))}
         </span>

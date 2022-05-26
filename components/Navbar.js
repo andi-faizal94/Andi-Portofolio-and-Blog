@@ -14,7 +14,7 @@ const navs = [
   { text: 'Home', href: '/' },
   { text: 'About', href: '/about' },
   { text: 'Portofolio', href: 'https://github.com/andi-faizal94' },
-  { text: 'Blog', href: '/blog' },
+  { text: 'Blog', href: '/https://medium.com/@andifz9475' },
   { text: 'Contact', href: '/contact' },
 ];
 const Navbar = ({ router }) => {
